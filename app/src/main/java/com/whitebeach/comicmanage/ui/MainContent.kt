@@ -12,14 +12,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.whitebeach.comicmanage.ui.screen.AdScreen
 import com.whitebeach.comicmanage.ui.screen.AppListScreen
 import com.whitebeach.comicmanage.ui.screen.HomeScreen
-import com.whitebeach.comicmanage.ui.screen.SettingScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,7 +32,7 @@ fun MainContent() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-                 TopAppBar(title = { Text(text = "Comic Manage") })
+            TopAppBar(title = { Text(text = "Comic Manage") })
         },
         bottomBar = {
             NavigationBar {
@@ -64,20 +65,20 @@ fun MainContent() {
             modifier = Modifier.padding(paddingValues = paddingValues)
         ) {
             composable(Screens.Home.route) {
-                HomeScreen(
-                    navController
-                )
+                HomeScreen(navController)
             }
-            composable(Screens.AppList .route) {
-                AppListScreen(
-                    navController
-                )
+            composable(Screens.AppList.route) {
+                AppListScreen(navController)
             }
             composable(Screens.Setting.route) {
-                SettingScreen(
-                    navController
-                )
+                AdScreen(navController)
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun MainContentPreview() {
+    MainContent()
 }
