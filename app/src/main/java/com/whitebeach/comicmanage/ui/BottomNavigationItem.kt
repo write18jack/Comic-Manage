@@ -3,7 +3,7 @@ package com.whitebeach.comicmanage.ui
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.List
 import androidx.compose.ui.graphics.vector.ImageVector
 
 data class BottomNavigationItem(
@@ -21,7 +21,7 @@ data class BottomNavigationItem(
                 route = Screens.AppList.route
             ),
             BottomNavigationItem(
-                icon = Icons.Filled.Settings,
+                icon = Icons.Filled.List,
                 route = Screens.Setting.route
             ),
         )
