@@ -1,8 +1,7 @@
-package com.whitebeach.comicmanage.ui.screen
+package com.whitebeach.comicmanage.presentation.applist
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -28,8 +27,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.whitebeach.comicmanage.ui.CollapsingLayout
-import com.whitebeach.comicmanage.ui.theme.ComicManageTheme
+import com.whitebeach.comicmanage.app.component.CollapsingLayout
+import com.whitebeach.comicmanage.app.theme.ComicManageTheme
 
 @Composable
 fun AppListScreen(navController: NavHostController) {

@@ -1,4 +1,4 @@
-package com.whitebeach.comicmanage.ui
+package com.whitebeach.comicmanage.presentation.main
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle

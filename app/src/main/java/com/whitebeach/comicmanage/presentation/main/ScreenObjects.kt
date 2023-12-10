@@ -1,4 +1,4 @@
-package com.whitebeach.comicmanage.ui
+package com.whitebeach.comicmanage.presentation.main
 
 sealed class Screens(val route : String) {
     object Home : Screens("home_route")

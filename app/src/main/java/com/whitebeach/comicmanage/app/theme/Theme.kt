@@ -1,4 +1,4 @@
-package com.whitebeach.comicmanage.ui.theme
+package com.whitebeach.comicmanage.app.theme
 
 import android.app.Activity
 import android.os.Build

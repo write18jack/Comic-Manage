@@ -1,4 +1,4 @@
-package com.whitebeach.comicmanage
+package com.whitebeach.comicmanage.app.component
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
@@ -39,7 +39,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.whitebeach.comicmanage.ui.theme.ComicManageTheme
+import com.whitebeach.comicmanage.R
+import com.whitebeach.comicmanage.app.theme.ComicManageTheme
 import kotlinx.coroutines.launch
 
 @Preview
@@ -86,21 +87,21 @@ object DrawerParams {
     val drawerButtons = arrayListOf(
         AppDrawerItemInfo(
             MainNavOption.HomeScreen,
-            title = com.whitebeach.comicmanage.R.string.drawer_home,
+            title = R.string.drawer_home,
             iconId = Icons.Filled.Home,
-            descriptionId = com.whitebeach.comicmanage.R.string.drawer_home_description
+            descriptionId = R.string.drawer_home_description
         ),
         AppDrawerItemInfo(
             MainNavOption.SettingsScreen,
-            com.whitebeach.comicmanage.R.string.drawer_settings,
+            R.string.drawer_settings,
             iconId = Icons.Filled.AddCircle,
-            com.whitebeach.comicmanage.R.string.drawer_settings_description
+            R.string.drawer_settings_description
         ),
         AppDrawerItemInfo(
             MainNavOption.AboutScreen,
-            com.whitebeach.comicmanage.R.string.drawer_about,
+            R.string.drawer_about,
             iconId = Icons.Filled.AddCircle,
-            com.whitebeach.comicmanage.R.string.drawer_info_description
+            R.string.drawer_info_description
         )
     )
 }

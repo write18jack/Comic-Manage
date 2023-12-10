@@ -1,4 +1,4 @@
-package com.whitebeach.comicmanage
+package com.whitebeach.comicmanage.presentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,8 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.whitebeach.comicmanage.ui.MainContent
-import com.whitebeach.comicmanage.ui.theme.ComicManageTheme
+import com.whitebeach.comicmanage.app.theme.ComicManageTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,8 +1,7 @@
-package com.whitebeach.comicmanage.ui.screen
+package com.whitebeach.comicmanage.presentation.home
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
@@ -20,10 +19,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.whitebeach.comicmanage.PagerSample
-import com.whitebeach.comicmanage.SampleDetailScreen
-import com.whitebeach.comicmanage.ScrollableTabRowSample
-import com.whitebeach.comicmanage.ui.theme.ComicManageTheme
+import com.whitebeach.comicmanage.app.theme.ComicManageTheme
+import com.whitebeach.comicmanage.presentation.home.view.HomeHorizontalPager
+import com.whitebeach.comicmanage.presentation.home.view.HomeScrollableTabRow
+import com.whitebeach.comicmanage.presentation.home.view.SampleDetailScreen
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -33,7 +32,7 @@ fun HomeScreen(navController: NavHostController) {
     val titles = listOf("Tab 0", "Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5")
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState { titles.size }
-    val navControllerX = rememberNavController()
+    val navControllerInHomeScreen = rememberNavController()
 
     Column(
         modifier = Modifier
@@ -41,7 +40,7 @@ fun HomeScreen(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        ScrollableTabRowSample(
+        HomeScrollableTabRow(
             tabIndex = tabIndex,
             operation = { tabIndex = it },
             titles = titles,
@@ -49,12 +48,11 @@ fun HomeScreen(navController: NavHostController) {
             pagerState = pagerState
         )
 
-        NavHost(navController = navControllerX, startDestination = "PagerSample") {
+        NavHost(navController = navControllerInHomeScreen, startDestination = "PagerSample") {
             composable(route = "PagerSample") {
-                PagerSample(
-                    pageCount = titles.size,
+                HomeHorizontalPager(
                     state = pagerState,
-                    navController = navControllerX
+                    navController = navControllerInHomeScreen
                 )
             }
             composable(
@@ -67,7 +65,7 @@ fun HomeScreen(navController: NavHostController) {
             ) {index ->
                 SampleDetailScreen(
                     itemIndex = index.arguments?.getInt("index"),
-                    navController = navControllerX
+                    navController = navControllerInHomeScreen
                 )
             }
         }
