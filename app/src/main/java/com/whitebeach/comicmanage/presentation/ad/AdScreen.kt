@@ -1,4 +1,4 @@
-package com.whitebeach.comicmanage.ui.screen
+package com.whitebeach.comicmanage.presentation.ad
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
