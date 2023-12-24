@@ -29,7 +29,7 @@ import com.whitebeach.comicmanage.presentation.home.view.SampleDetailScreen
 fun HomeScreen(navController: NavHostController) {
 
     var tabIndex by remember { mutableIntStateOf(0) }
-    val titles = listOf("Tab 0", "Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5")
+    val titles = listOf("All", "日", "月", "火", "水", "木", "金", "土")
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState { titles.size }
     val navControllerInHomeScreen = rememberNavController()

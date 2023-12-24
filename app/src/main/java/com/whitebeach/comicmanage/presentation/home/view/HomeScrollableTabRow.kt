@@ -60,7 +60,7 @@ fun HomeScrollableTabRow(
                 },
                 modifier = Modifier.fillMaxWidth(),
                 text = {
-                    Text(text = "Tab $title")
+                    Text(text = "$title")
                 }
             )
         }
