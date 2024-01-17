@@ -31,7 +31,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
-val comicList = listOf("one piece", "laliga", "metropolitano")
+data class comicItem(
+    val name: String,
+    val publish: String,
+)
+
+val List = listOf(
+    comicItem( name = "one piece", publish = "Mon" ),
+    comicItem( name = "laliga", publish = "Fri" ),
+    comicItem( name = "metropolitano", publish = "Sun" ),
+)
+
+val comicList = listOf("one piece", "laliga", "metropolitano", )
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable

@@ -5,6 +5,14 @@ plugins {
     alias(libs.plugins.com.goole.relay)
 }
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
 android {
     namespace = "com.whitebeach.comicmanage"
     compileSdk = 34
@@ -64,6 +72,8 @@ dependencies {
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
     //implementation(libs.accompanist.pager.indicators)
+
+    implementation(libs.twopanelayout)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

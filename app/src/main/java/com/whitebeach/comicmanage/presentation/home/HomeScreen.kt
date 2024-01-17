@@ -48,7 +48,10 @@ fun HomeScreen(navController: NavHostController) {
             pagerState = pagerState
         )
 
-        NavHost(navController = navControllerInHomeScreen, startDestination = "PagerSample") {
+        NavHost(
+            navController = navControllerInHomeScreen,
+            startDestination = "PagerSample"
+        ) {
             composable(route = "PagerSample") {
                 HomeHorizontalPager(
                     state = pagerState,

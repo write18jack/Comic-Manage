@@ -17,7 +17,6 @@ import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DrawerValue
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
@@ -45,10 +44,10 @@ import kotlinx.coroutines.launch
 
 @Preview
 @Composable
-fun ModalDrawer(){
+fun ModalDrawer() {
     val drawerState: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     ComicManageTheme {
-        Surface{
+        Surface {
             ModalNavigationDrawer(
                 drawerState = drawerState,
                 drawerContent = {
@@ -106,12 +105,14 @@ object DrawerParams {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+// 一つのitem
 @Composable
 fun <T> AppDrawerItem(item: AppDrawerItemInfo<T>, onClick: (options: T) -> Unit) =
     Surface(
         color = MaterialTheme.colorScheme.onPrimary,
-        modifier = Modifier.width(200.dp).padding(16.dp),
+        modifier = Modifier
+            .width(200.dp)
+            .padding(16.dp),
         onClick = { onClick(item.drawerOption) },
         shape = RoundedCornerShape(50),
     ) {
@@ -136,7 +137,6 @@ fun <T> AppDrawerItem(item: AppDrawerItemInfo<T>, onClick: (options: T) -> Unit)
         }
     }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun <T : Enum<T>> AppDrawerContent(
     drawerState: DrawerState,
@@ -158,14 +158,12 @@ fun <T : Enum<T>> AppDrawerContent(
                 ) {
                     items(menuItems) { item ->
                         AppDrawerItem(item = item) { navOption ->
-
                             if (currentPick == navOption) {
                                 coroutineScope.launch {
                                     drawerState.close()
                                 }
                                 return@AppDrawerItem
                             }
-
                             currentPick = navOption
                             coroutineScope.launch {
                                 drawerState.close()
