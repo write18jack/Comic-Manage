@@ -1,5 +1,6 @@
 package com.whitebeach.comicmanage.presentation.home.view
 
+import android.media.CamcorderProfile.getAll
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -52,7 +53,23 @@ data class Manga(
 val mangaList = listOf(
     Manga("One Piece", "Eiichiro Oda", listOf("Monday", "Adventure", "Comedy", "Fantasy")),
     Manga("Naruto", "Masashi Kishimoto", listOf("Tuesday", "Action", "Adventure", "Martial Arts")),
-    Manga("Attack on Titan", "Hajime Isayama", listOf("Wednesday", "Action", "Drama", "Horror"))
+    Manga("Attack on Titan", "Hajime Isayama", listOf("Wednesday", "Action", "Drama", "Horror")),
+    Manga("Death Note", "Tsugumi Ohba", listOf("Thursday", "Mystery", "Psychological", "Supernatural")),
+    Manga("Fullmetal Alchemist", "Hiromu Arakawa", listOf("Friday", "Action", "Adventure", "Science Fiction")),
+    Manga("Dragon Ball", "Akira Toriyama", listOf("Saturday", "Action", "Adventure", "Comedy")),
+    Manga("Sailor Moon", "Naoko Takeuchi", listOf("Sunday", "Romance", "Magical Girl", "Fantasy")),
+    Manga("Bleach", "Tite Kubo", listOf("Monday", "Action", "Adventure", "Supernatural")),
+    Manga("Slam Dunk", "Takehiko Inoue", listOf("Tuesday", "Sports", "Comedy", "Drama")),
+    Manga("Demon Slayer", "Koyoharu Gotouge", listOf("Wednesday", "Action", "Adventure", "Historical")),
+    Manga("My Hero Academia", "Kohei Horikoshi", listOf("Thursday", "Action", "Comedy", "Superhero")),
+    Manga("Hunter x Hunter", "Yoshihiro Togashi", listOf("Friday", "Action", "Adventure", "Fantasy")),
+    Manga("One Punch Man", "ONE", listOf("Saturday", "Action", "Comedy", "Parody")),
+    Manga("Haikyu!!", "Haruichi Furudate", listOf("Sunday", "Sports", "Comedy", "Drama")),
+    Manga("Tokyo Ghoul", "Sui Ishida", listOf("Monday", "Action", "Horror", "Psychological")),
+    Manga("Fruits Basket", "Natsuki Takaya", listOf("Tuesday", "Romance", "Comedy", "Drama")),
+    Manga("JoJo's Bizarre Adventure", "Hirohiko Araki", listOf("Wednesday", "Action", "Adventure", "Supernatural")),
+    Manga("Black Clover", "Yuki Tabata", listOf("Thursday", "Action", "Adventure", "Fantasy")),
+    Manga("Cardcaptor Sakura", "CLAMP", listOf("Friday", "Romance", "Magical Girl", "Fantasy"))
 )
 
 // 掲掲載曜日のタグをつける関数
@@ -106,14 +123,26 @@ fun HomeHorizontalPager(
     ) { page ->
         // Our page content
         Box(Modifier.fillMaxSize()) {
+            var comics = when (page) {
+                0 -> getTitle(mangaList)
+                1 -> getTitle(filterByTag("Sunday"))
+                2 -> getTitle(filterByTag("Monday"))
+                3 -> getTitle(filterByTag("Tuesday"))
+                4 -> getTitle(filterByTag("Wednesday"))
+                5 -> getTitle(filterByTag("Thursday"))
+                6 -> getTitle(filterByTag("Friday"))
+                7 -> getTitle(filterByTag("Saturday"))
+                else -> getTitle(filterByTag("Other"))
+            }
             DayOfWeekList(
                 page = page,
-                comics = getTitle(filterByTag("Monday")),
+                comics = comics,
                 navController = navController,
             )
         }
     }
 }
+
 
 
 
@@ -140,6 +169,7 @@ fun DayOfWeekList(
                             navController.navigate(route = "SampleDetailScreen/$index")
                         }
                 ) {
+
                     Text(
                         text = " $comic ",
                         modifier = Modifier.fillMaxWidth()
